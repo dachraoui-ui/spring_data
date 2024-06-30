@@ -4,15 +4,21 @@ import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Data;
 
-@Table(name = "employee")
+@Table(name = "employees")
 @Entity
 @Data
 @Builder
 public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "emp_id")
     private Integer id;
-    private String name;
+    @Column(name = "first_name")
+    private String FirstName;
+    @Column(name = "last_name")
+    private String LastName;
     private Double salary;
+
+
 
 }
