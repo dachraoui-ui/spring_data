@@ -11,13 +11,16 @@ import java.util.Optional;
 public class EmpService {
     @Autowired
     private EmpRepo empRepo;
-    public Employee getEmp(){
+    public Employee getEmp(Integer id ){
         // for the null pointer exception ;
-        Optional<Employee> emp = this.empRepo.findById(1);
+        Optional<Employee> emp = this.empRepo.findById(id);
         if(emp.isPresent())
             return emp.get();
         return new Employee() ;
         // we can replace those 3 lines with
         // return emp.orElse( null ) ;
+    }
+    public Employee SaveEmp(Employee employee){
+        return this.empRepo.save(employee);
     }
 }
