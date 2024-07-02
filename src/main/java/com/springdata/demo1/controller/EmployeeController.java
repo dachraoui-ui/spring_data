@@ -3,7 +3,6 @@ package com.springdata.demo1.controller;
 import com.springdata.demo1.model.entity.Employee;
 import com.springdata.demo1.service.EmpService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -19,4 +18,13 @@ public class EmployeeController {
     public Employee SaveEmp(@RequestBody Employee employee){
         return this.empService.SaveEmp(employee);
     }
+    @GetMapping("delete_emp")
+    public void deleteEmp(@RequestParam Integer id){
+        empService.deleteEmp(id);
+    }
+    @PostMapping("update_emp")
+    public Employee updateEmp(@RequestBody Employee employee){
+        return this.empService.SaveEmp(employee);
+    }
+
 }
